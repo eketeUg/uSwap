@@ -138,7 +138,7 @@ export class DefiService {
     const poolAddress = await this.factoryContract.getPool(
       tokenIn.address,
       tokenOut.address,
-      3000,
+      3000, // this is the fee tier 500 (0.05% For stable or highly correlated pairs), 3000 (0.3% For most standard trading pairs (default)), 10000 (1.0% For exotic or highly volatile trading pairs)
     );
     if (!poolAddress) {
       throw new Error('Failed to get pool address');
